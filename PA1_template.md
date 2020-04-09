@@ -5,7 +5,7 @@ output:
     keep_md: true
 ---
 
-This assignment makes use of data from a personal activity monitoring device. This device collects data at 5 minute intervals through out the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day.
+This assignment makes use of data from a personal activity monitoring device. This device collects data at 5 minute intervals through out the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day.    
 
 ## Loading and preprocessing the data
 
@@ -56,7 +56,7 @@ q1 <- q1 %>% mutate(date=as.Date(date,format = "%Y-%m-%d"))
 hist(q1$x,main = "Histogram of Total Steps per Day",xlab = "Number of Steps")
 ```
 
-![](PA1_template_files/figure-html/Histogram of Avg-1.png)<!-- -->
+![](PA1_template_files/figure-html/Q1 Histogram of Avg-1.png)<!-- -->
 
 
 ```r
@@ -77,7 +77,7 @@ q2 <- aggregate(sorted$steps,by=list(interval=sorted$interval),FUN=mean)
 with(q2,plot(as.numeric(as.character(interval)),as.numeric(as.character(x)),type="l",xlab = "5 Min Intervals",ylab = "Average Steps take Across all Days",main = "Average Number of Steps at Each Interval"))
 ```
 
-![](PA1_template_files/figure-html/Time Plot-1.png)<!-- -->
+![](PA1_template_files/figure-html/Q2 Time Plot-1.png)<!-- -->
 
 
 ```r
@@ -106,7 +106,7 @@ q3 <- aggregate(dat2$steps,by=list(date=dat2$date),FUN=sum)
 hist(q3$x,main = "Histogram of Total Steps per Day",xlab = "Number of Steps")
 ```
 
-![](PA1_template_files/figure-html/Missing Values-1.png)<!-- -->
+![](PA1_template_files/figure-html/Q3 Missing Values-1.png)<!-- -->
 
 
 
@@ -135,4 +135,4 @@ par(mfrow=c(2,1),mar=c(4,4,2,1))
 qplot(interval,x,data=dat4,facets = Days~.,geom = "line")+labs(y="Average Steps",x="5 min Intervals")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](PA1_template_files/figure-html/Q4 Weekday/Weekend-1.png)<!-- -->
