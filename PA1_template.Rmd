@@ -29,7 +29,7 @@ sorted <- data %>% filter(!is.na(steps))
 
 
 
-```{r Q1 Histogram of Avg}
+```{r Q1 Histogram of Avg Plot}
 
 library(ggplot2)
 
@@ -53,7 +53,7 @@ The mean total number of steps taken per day is `r mean` and the median is `r me
 
 Below is a line plot of the 5 minute interval and the average number of steps taken, averaged across all days.
 
-```{r Q2 Time Plot}
+```{r Q2 Time line Plot}
 
 q2 <- aggregate(sorted$steps,by=list(interval=sorted$interval),FUN=mean)
 
@@ -70,7 +70,7 @@ The 5-minute interval that contains the maximum number of steps is `r max`.
 
 ## Imputing missing values
 
-```{r Q3 Missing Values}
+```{r Q3 Missing Values Plot}
 
 
 dat2 <- data
@@ -101,7 +101,7 @@ The number of missing values is `r num`. After imputing NA values with the avera
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-```{r Q4 Weekday/Weekend}
+```{r Q4 Weekday/Weekend Plot}
 
 q4 <- dat2 %>% mutate(weekend=weekdays(as.Date(date)))
 
